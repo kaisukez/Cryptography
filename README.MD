@@ -91,4 +91,4 @@ Decrypt Message 1
 Decrypt Message 2
     cth ni oueer
 ```
-and if you type 'q' or 'Q', the program will quit. Now you understand how this program work so you can try to enter different ciphertext and different command.
+and if you type 'q' or 'Q', the program will quit. Now you understand how this program work so you can try to enter different ciphertext and different command. Or you can study my code - that's not very clean because this is my first serious python program I wrote.

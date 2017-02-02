@@ -4,7 +4,7 @@ def printText(Text):
         print(char, end='')
     print('')
 
-cipherText = input('Enter Cipher Text\n    ')
+cipherText = input('Enter Ciphertext\n    ')
 
 #find letter frequency
 a=b=c=d=e=f=g=h=i=j=k=l=m=n=o=p=q=r=s=t=u=v=w=x=y=z=0
@@ -126,11 +126,11 @@ def printStatFull():
     print('')
 
 def printFullData():
-    print("-----------------------------------------------------------------------------\nCipher Text")
+    print("-----------------------------------------------------------------------------\nCiphertext")
     printText(cipherText)
-    print("\nDecrypt Text 1")
+    print("\nDecrypt Message 1")
     printText(lineDecoding(cipherText, realStat1))
-    print("\nDecrypt Text 2")
+    print("\nDecrypt Message 2")
     printText(lineDecoding(cipherText, realStat2))
     printStatFull()
 

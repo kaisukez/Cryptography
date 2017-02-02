@@ -1,8 +1,13 @@
-import math
+def printText(Text):
+    print('    ', end='')
+    for char in Text:
+        print(char, end='')
+    print('')
+
+cipherText = input('Enter Cipher Text\n    ')
+
+#find letter frequency
 a=b=c=d=e=f=g=h=i=j=k=l=m=n=o=p=q=r=s=t=u=v=w=x=y=z=0
-
-cipherText = input()
-
 for num in range(len(cipherText)):
     if cipherText[num] == 'a' or cipherText[num] == 'A':
         a += 1
@@ -57,94 +62,108 @@ for num in range(len(cipherText)):
     elif cipherText[num] == 'z' or cipherText[num] == 'Z':
         z += 1
 
-def printCipherText():
-    for I in cipherText:
-        print(I, end='')
-    print('')
+sampleStat = [['a','A',a],['b','B',b],['c','C',c],['d','D',d],['e','E',e],['f','F',f],['g','G',g],['h','H',h],['i','I',i],['j','J',j],['k','K',k],['l','L',l],['m','M',m],['n','N',n],['o','O',o],['p','P',p],['q','Q',q],['r','R',r],['s','S',s],['t','T',t],['u','U',u],['v','V',v],['w','W',w],['x','X',x],['y','Y',y],['z','Z',z]]
+realStat1 = [['a','A',8.2],['b','B',1.5],['c','C',2.8],['d','D',4.2],['e','E',12.7],['f','F',2.2],['g','G',2.0],['h','H',6.1],['i','I',7.0],['j','J',0.1],['k','K',0.8],['l','L',4.0],['m','M',2.4],['n','N',6.7],['o','O',7.5],['p','P',1.9],['q','Q',0.1],['r','R',6.0],['s','S',6.3],['t','T',9.0],['u','U',2.8],['v','V',1.0],['w','W',2.4],['x','X',2.0],['y','Y',0.1],['z','Z',0.1]]
+realStat2 = [['a','A',8.34],['b','B',1.54],['c','C',2.73],['d','D',4.14],['e','E',12.6],['f','F',2.03],['g','G',1.92],['h','H',6.11],['i','I',6.71],['j','J',0.23],['k','K',0.87],['l','L',4.24],['m','M',2.53],['n','N',6.8],['o','O',7.7],['p','P',1.66],['q','Q',0.09],['r','R',5.68],['s','S',6.11],['t','T',9.37],['u','U',2.85],['v','V',1.06],['w','W',2.34],['x','X',0.2],['y','Y',2.04],['z','Z',0.06]]
 
+#sort stats
 def getKey(data):
     return data[2]
-
-sampleStat = [['a','A',a],['b','B',b],['c','C',c],['d','D',d],['e','E',e],['f','F',f],['g','G',g],['h','H',h],['i','I',i],['j','J',j],['k','K',k],['l','L',l],['m','M',m],['n','N',n],['o','O',o],['p','P',p],['q','Q',q],['r','R',r],['s','S',s],['t','T',t],['u','U',u],['v','V',v],['w','W',w],['x','X',x],['y','Y',y],['z','Z',z]]
-realStat1 = [['a','A',8.2,'1'],['b','B',1.5,'1'],['c','C',2.8,'1'],['d','D',4.2,'1'],['e','E',12.7,'1'],['f','F',2.2,'1'],['g','G',2.0,'1'],['h','H',6.1,'1'],['i','I',7.0,'1'],['j','J',0.1,'1'],['k','K',0.8,'1'],['l','L',4.0,'1'],['m','M',2.4,'1'],['n','N',6.7,'1'],['o','O',7.5,'1'],['p','P',1.9,'1'],['q','Q',0.1,'1'],['r','R',6.0,'1'],['s','S',6.3,'1'],['t','T',9.0,'1'],['u','U',2.8,'1'],['v','V',1.0,'1'],['w','W',2.4,'1'],['x','X',2.0,'1'],['y','Y',0.1,'1'],['z','Z',0.1,'1']]
-realStat2 = [['a','A',8.34,'1'],['b','B',1.54,'1'],['c','C',2.73,'1'],['d','D',4.14,'1'],['e','E',12.6,'1'],['f','F',2.03,'1'],['g','G',1.92,'1'],['h','H',6.11,'1'],['i','I',6.71,'1'],['j','J',0.23,'1'],['k','K',0.87,'1'],['l','L',4.24,'1'],['m','M',2.53,'1'],['n','N',6.8,'1'],['o','O',7.7,'1'],['p','P',1.66,'1'],['q','Q',0.09,'1'],['r','R',5.68,'1'],['s','S',6.11,'1'],['t','T',9.37,'1'],['u','U',2.85,'1'],['v','V',1.06,'1'],['w','W',2.34,'1'],['x','X',0.2,'1'],['y','Y',2.04,'1'],['z','Z',0.06,'1']]
 sampleStat.sort(key=getKey,reverse=True)
 realStat1.sort(key=getKey,reverse=True)
 realStat2.sort(key=getKey,reverse=True)
 
+#find sample stat
 SUM = 0
 for sample in sampleStat:
     SUM += sample[2]
 for sample in sampleStat:
     sample[2] = sample[2]*100/SUM
 
-def lineDecoding(cipherText, sampleStat, realStat):
-    print('')
+def lineDecoding(cipherText, realStat):
+    decryptText = [' ' for I in cipherText]
     for I in range(len(cipherText)):
-        letterNumber = -1
-        isCapital = False
-        for J in range(len(sampleStat)):
+    #for I in range(len(cipherText)):
+        foundMessage = False
+        for J in range(26):
             if cipherText[I] == sampleStat[J][0]:
-                letterNumber = J 
+                decryptText[I] = realStat[J][0]
+                foundMessage = True
                 break
             elif cipherText[I] == sampleStat[J][1]:
-                letterNumber = J 
-                isCapital = True
+                decryptText[I] = realStat[J][1]
+                foundMessage = True
                 break
-        if letterNumber < 0:
-            print(cipherText[I], end='')
-        else:
-            if isCapital:
-                print(realStat[J][1], end='')
-            else:
-                print(realStat[J][0], end='')
+        if not foundMessage:
+            decryptText[I] = cipherText[I]
+    return decryptText
+
+def printStat(stat):
+    print(stat[0], end=' ')
+    if stat[2] / 10 < 1:
+        print(" " + "{0:.2f}".format(stat[2]) + '%', end=' ')
+    else:
+        print("{0:.2f}".format(stat[2]) + '%', end=' ')
+
+def printStatFull():
     print('')
+    print('sample     real1      real2              sample     real1      real2')
+    for I in range(13):
+        printStat(sampleStat[I])
+        print('  ', end='')
+        printStat(realStat1[I])
+        print('  ', end='')
+        printStat(realStat2[I])
+        
+        print('          ', end='')
 
-lineDecoding(cipherText, sampleStat, realStat1)
-lineDecoding(cipherText, sampleStat, realStat2)
-
-def printAlphabet(stat):
-    print('')
-    for X in stat:
-        print(X[0], end='')
-    print('')
-
-def printStat():
-    print('')
-    for I in range(26):
-        print(sampleStat[I][0], end=' ')
-        print(sampleStat[I][2], end=' ')
-
-        print(realStat1[I][0], end=' ')
-        print(realStat1[I][2], end=' ')
-        if realStat1[I][3] == '9':
-            print('***', end=' ')
-        elif realStat1[I][3] != '1':
-            print('***' + realStat1[I][3] + '***', end=' ')
-
-        print(realStat2[I][0], end=' ')
-        print(realStat2[I][2], end=' ')
-        if realStat2[I][3] == '9':
-            print('***', end=' ')
-        elif realStat2[I][3] != '1':
-            print('***' + realStat2[I][3] + '***', end=' ')
+        printStat(sampleStat[I+13])
+        print('  ', end='')
+        printStat(realStat1[I+13])
+        print('  ', end='')
+        printStat(realStat2[I+13])
         print('')
     print('')
 
-printStat()
-def setStat(KEY, realStat):
-    KEY2 = ['1' for I in range(5)]
-    for I in range(len(KEY)):
-        KEY2[I] = KEY[I]
+def printFullData():
+    print("-----------------------------------------------------------------------------\nCipher Text")
+    printText(cipherText)
+    print("\nDecrypt Text 1")
+    printText(lineDecoding(cipherText, realStat1))
+    print("\nDecrypt Text 2")
+    printText(lineDecoding(cipherText, realStat2))
+    printStatFull()
 
+printFullData()
+
+def swap(A, B, realStat):
+    if A == B:
+        return
     for I in range(26):
-        if KEY2[1] == realStat[I][0] or KEY2[1] == realStat[I][1]:
-            if KEY2[4] == '3':
-                realStat[I][3] = '9'
-            elif realStat[I][3] == '1' or KEY2[4] == '2':
-                realStat[I][3] = realStat[I][0]
-                realStat[I][0] = KEY2[3]
-                realStat[I][1] = KEY2[3]
+        if A == realStat[I][0] or A == realStat[I][1]:
+            TMP1 = I
+            realStat[I][0] = B
+            realStat[I][1] = B
+            break
+    for I in range(26):
+        if (B == realStat[I][0] or B == realStat[I][1]) and I != TMP1:
+            TMP2 = I
+            realStat[I][0] = A
+            realStat[I][1] = A
+            break
+    TMP3 = realStat[TMP1][2]
+    realStat[TMP1][2] = realStat[TMP2][2]
+    realStat[TMP2][2] = TMP3
+
+def findIndex(char, stat):
+    result = -1
+    for I in range(len(stat)):
+        if char == stat[I][0] or char == stat[I][1]:
+            result = I
+    return result
+
+def setStat(KEY, realStat):
+    swap(KEY[1], KEY[3], realStat)
 
 
 KEY = input()
@@ -153,10 +172,9 @@ while 1:
         break
     elif KEY[0] == '1':
         setStat(KEY, realStat1)
+        swap(realStat2[findIndex(KEY[3], realStat1)][0], KEY[3],realStat2)
     elif KEY[0] == '2':
         setStat(KEY, realStat2)
-    printCipherText()
-    lineDecoding(cipherText, sampleStat, realStat1)
-    lineDecoding(cipherText, sampleStat, realStat2)
-    printStat()
+        swap(realStat1[findIndex(KEY[3], realStat2)][0], KEY[3],realStat1)
+    printFullData()
     KEY = input()

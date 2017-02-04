@@ -137,7 +137,7 @@ abcdef
 ```
 
 ## Affine Cipher
-Affine cipher is the cipher that use function y = Ax + B (mod 26) (y = ciphertext, x = plaintext, A = first key, B = second key). To decrypt it, use x = (y - B) * inverse(A) this means A must have modular multiplicative inverse (in mod 26). So gcd(A, 26) must be 1, i.e., A muse be in this set {1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25}.
+Affine cipher is the cipher that use function y = Ax + B (mod 26) (y = ciphertext, x = plaintext, A = first key, B = second key). To decrypt it, use x = (y - B) * inverse(A) this means 'A' must have modular multiplicative inverse (in mod 26). So gcd(A, 26) must be 1, i.e., 'A' must be in this set {1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25}.
 
 Again, there're 2 main ways to run my program. First, you run program by passing one agrument or pass nothing to select mode (0 = encryption mode, 1 = decryption mode or pass no agrument to select encryption mode).
 ```

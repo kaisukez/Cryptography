@@ -81,7 +81,7 @@ d  0.00%   l  4.00%   d  4.14%           w  0.00%   q  0.10%   x  0.20%
 e  0.00%   a  8.20%   u  2.85%           x  0.00%   y  0.10%   q  0.09% 
 g  0.00%   u  2.80%   a  8.34%           z  0.00%   z  0.10%   z  0.06% 
 ```
-you will see that the letter 't' form decrypt message 1 changed to letter 'c', and also decrypt message 2. The '1' from '1a=c' means the decrypt message 1, and 'a=c' means change all letter 'a' to letter 'c'. so '1a=c' means change all letter 'a' form decrypt message 1 to letter 'c'. But you will notice that the decrypt message 2 is also affected. 
+you will see that the letter 'a' form decrypt message 1 changed to letter 'c', and also decrypt message 2. The '1' from '1a=c' means the decrypt message 1, and 'a=c' means change all letter 'a' to letter 'c'. so '1a=c' means change all letter 'a' form decrypt message 1 to letter 'c'. But you will notice that the decrypt message 2 is also affected. 
 
 And if you type '2s=u', you will see this...
 ```

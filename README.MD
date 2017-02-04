@@ -161,7 +161,7 @@ Key: 11 25
 
 Plaintext: Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas
 ```
-And another way to run my program is passing message in command line argument, keys and mode. Also you can pass only message and keys to use encryption mode.
+And another way to run my program is passing message, keys and mode in command line argument. Also you can pass only message and keys to use encryption mode.
 ```
 $ python3 affine.py passwordisadmin123 9 12
 rmsscijngsmnqgz123

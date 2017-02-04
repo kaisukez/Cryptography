@@ -1,12 +1,20 @@
+import sys
+args = sys.argv[1:]
+
 def printText(Text):
     print('    ', end='')
     for char in Text:
         print(char, end='')
     print('')
 
-cipherText = input('Enter Ciphertext\n    ')
-
+if len(args) > 0:
+    cipherText = ''
+    for text in args:
+        cipherText += text + ' '
+else:
+    cipherText = input('Enter Ciphertext\n    ')
 #find letter frequency
+
 a=b=c=d=e=f=g=h=i=j=k=l=m=n=o=p=q=r=s=t=u=v=w=x=y=z=0
 for num in range(len(cipherText)):
     if cipherText[num] == 'a' or cipherText[num] == 'A':

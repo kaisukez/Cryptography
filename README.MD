@@ -1,13 +1,18 @@
 # HOW TO USE
  I wrote programs in python3, so you have to run by using python 3. I'm using this following command to run...
 ```
-python3 example.py
+$ python3 example.py
 ```
 ## letterFrequencyAnalysis
 This is letter frequency analysis program. Once you enter cipher text, it will show you letter frequency of that cipher text compare to letter frequency from Introduction to modern cryptography book and from website that I forgot to bookmark (if I found, I will update here).
 
-First you have to enter your cipher text
+First you have to enter your cipher text by passing argument in command line like this
 ```
+$ python3 letterFrequencyAnalysis.py cat is funny
+```
+or you can run program normally
+```
+$ python3 letterFrequencyAnalysis.py
 Enter Cipher Text
     cat is funny
 ```

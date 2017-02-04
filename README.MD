@@ -124,7 +124,7 @@ Key: 11
 
 Ciphertext: ozr td lozclmwp
 ```
-as you can see, passing agrument '0' or pass no agrument, it's the same. Because I think people - including me - want to test encryption first, then decryption.
+as you can see, passing agrument '0' or pass no agrument, it's the same. Because I think people - including me - want to encrypt message first, then decrypt it.
 
 Another way to run my program is to pass 3 agruments, i.e., message, key and mode. But you can also pass only 2 agrument, message and key, to use encryption mode, but only limitation is that you can't type space between message.
 ```

@@ -99,7 +99,7 @@ Decrypt Message 2
 and if you type 'q' or 'Q', the program will quit. Now you understand how this program work so you can try to enter different ciphertext and different command. Or you can study my code - that's not very clean because this is my first serious python program I wrote.
 
 ## Shift Cipher
-Shift cipher is the cipher shift letter by the key. For instance, key is 2 so 'a' will be shift to 'c', 'z' shift to 'b'.
+Shift cipher is the cipher that shift letter by the key. For instance, key is 2 so 'a' will be shift to 'c', 'z' shift to 'b'.
 
 There are 2 main ways to run my program. First you pass 1 argument to select mode (0 = encryption mode, 1 = decryption mode).
 ```
@@ -134,4 +134,39 @@ defghi
 ```
 $ python3 shift.py defghi 3 1
 abcdef
+```
+
+## Affine Cipher
+Affine cipher is the cipher that use function y = Ax + B (mod 26) (y = ciphertext, x = plaintext, A = first key, B = second key). To decrypt it, use x = (y - B) * inverse(A) this means A must have modular multiplicative inverse (in mod 26). So gcd(A, 26) must be 1, i.e., A muse be in this set {1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25}.
+
+Again, there're 2 main ways to run my program. First, you run program by passing one agrument or pass nothing to select mode (0 = encryption mode, 1 = decryption mode or pass no agrument to select encryption mode).
+```
+$ python3 affine.py
+Plaintext: Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas
+Key: 11 25
+
+Ciphertext: Lwlwhrwhrwhr Xmdrarmdrwhr Lnhrblyhrb Xpzp
+```
+```
+$ python3 affine.py 0
+Plaintext: Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas
+Key: 11 25
+
+Ciphertext: Lwlwhrwhrwhr Xmdrarmdrwhr Lnhrblyhrb Xpzp
+```
+```
+$ python3 affine.py 1
+Ciphertext: Lwlwhrwhrwhr Xmdrarmdrwhr Lnhrblyhrb Xpzp
+Key: 11 25
+
+Plaintext: Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas
+```
+And another way to run my program is passing message in command line argument, keys and mode. Also you can pass only message and keys to use encryption mode.
+```
+$ python3 affine.py passwordisadmin123 9 12
+rmsscijngsmnqgz123
+```
+```
+$ python3 affine.py rmsscijngsmnqgz123 9 12 1
+passwordisadmin123
 ```

@@ -3,8 +3,8 @@
 ```
 python3 example.py
 ```
-## letterAnalysis
-This is letter analysis program. Once you enter cipher text, it will show you letter frequency of that cipher text compare to letter frequency from Introduction to modern cryptography book and from website that I forgot to bookmark (if I found, I will update here).
+## letterFrequencyAnalysis
+This is letter frequency analysis program. Once you enter cipher text, it will show you letter frequency of that cipher text compare to letter frequency from Introduction to modern cryptography book and from website that I forgot to bookmark (if I found, I will update here).
 
 First you have to enter your cipher text
 ```

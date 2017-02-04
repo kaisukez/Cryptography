@@ -3,7 +3,7 @@
 ```
 $ python3 example.py
 ```
-## letterFrequencyAnalysis
+## Letter Frequency Analysis
 This is letter frequency analysis program. Once you enter cipher text, it will show you letter frequency of that cipher text compare to letter frequency from Introduction to modern cryptography book and from website that I forgot to bookmark (if I found, I will update here).
 
 First you have to enter your cipher text by passing argument in command line like this
@@ -97,3 +97,41 @@ Decrypt Message 2
     cth ni oueer
 ```
 and if you type 'q' or 'Q', the program will quit. Now you understand how this program work so you can try to enter different ciphertext and different command. Or you can study my code - that's not very clean because this is my first serious python program I wrote.
+
+## Shift Cipher
+Shift cipher is the cipher shift letter by the key. For instance, key is 2 so 'a' will be shift to 'c', 'z' shift to 'b'.
+
+There are 2 main ways to run my program. First you pass 1 argument to select mode (0 = encryption mode, 1 = decryption mode).
+```
+$ python3 shift.py 0
+Plaintext: dog is adorable
+Key: 11
+
+Ciphertext: ozr td lozclmwp
+```
+```
+$ python3 shift.py 1
+Ciphertext: ozr td lozclmwp
+Key: 11
+
+Plaintext: dog is adorable
+```
+or you can run by pass no agrument, this will be encryption mode.
+```
+$ python3 shift.py
+Plaintext: dog is adorable
+Key: 11
+
+Ciphertext: ozr td lozclmwp
+```
+as you can see, passing agrument '0' or pass no agrument, it's the same. Because I think people - including me - want to test encryption first, then decryption.
+
+Another way to run my program is to pass 3 agruments, i.e., message, key and mode. But you can also pass only 2 agrument, message and key, to use encryption mode, but only limitation is that you can't type space between message.
+```
+$ python3 shift.py abcdef 3
+defghi
+```
+```
+$ python3 shift.py defghi 3 1
+abcdef
+```

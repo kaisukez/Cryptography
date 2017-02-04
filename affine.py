@@ -73,13 +73,13 @@ def decryptMessage(ciphertext, key):
                 shift = ord('A')
             plaintext += chr(((y - shift - int(key[1])) * modInverse(int(key[0]), 26)) % 26 + shift)
         else:
-            palintext += T
+            plaintext += T
     return plaintext
 
 def encryptWhenKeyIsValid(plaintext, key, silentMode):
     if keyValid(key) == 0:
         if not silentMode:
-            print('Ciphertext: ')
+            print('Ciphertext: ', end='')
         print(encryptMessage(plaintext, key))
     else:
         printError(keyValid(key))
@@ -87,7 +87,7 @@ def encryptWhenKeyIsValid(plaintext, key, silentMode):
 def decryptWhenKeyIsValid(ciphertext, key, silentMode):
     if keyValid(key) == 0:
         if not silentMode:
-            print('Plaintext: ')
+            print('Plaintext: ', end='')
         print(decryptMessage(ciphertext, key))
     else:
         printError(keyValid(key))
